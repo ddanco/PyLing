@@ -1,0 +1,172 @@
+
+
+###### CHANGE-LOG #######
+
+
+
+## 10/16: added sketchy chinese translator (https://pypi.python.org/pypi/translate)
+##		added option to remove incorrect words
+##		report those removed words at the end
+##   	changed iterator to work with python3 (had been upset about changing dict size)
+
+## 10/30: fixed bug if user removed last element in list
+##		tried to use pygame, lots of issues
+## 		decided to use python2 for this, since pygame is only running on that
+##		this means I had to switch to "raw_input" instead of "input"
+##		got basic pygame display working, still only writes out prompt
+
+## 10/31: got pygame working decently
+##		prints all needed things on string
+##		to do: make "remove" button instead of typing "rm"
+##				create text box to input text
+##				create quit button
+##				create try again button
+
+## 11/1: added buttons from http://simonhl.dk/button-drawer-python-2-6/
+##		check out http://www.pygame.org/wiki/TextWrap later for wrapping text
+##		(e.g. wraptext.drawText(screen, "test", (255,255,255), background.get_rect(), font, aa=False, bkg=None))
+##		now can input words, quit at end
+##		remove button not working
+##		cant get start screen to not be black
+
+## 11/2: got everything (mostly) working for the basics on pygame app
+## 		some sketchiness still with event checking
+##		dont know how to put in a constant "quit/exit" button (even top x doesnt work)
+##		can't find better translator
+##		even non-words are found with this translator, don't know if there's a way around that
+##		added colors and font
+
+## 11/3: added a "submit" button at the beginning so user can enter words with or without pressing enter in between (stil doesnt work fully)
+##		problems with detecting mouse clicks using event.get (switched to mouse.get_pressed)
+##		really really couldnt get "submit" button to work
+##			-problem combining key input with checking for button click
+
+## 11/5: got "continue" and "add words" buttons working
+##		found pretty good french english text dictionary: http://www.slideshare.net/RalphPilkington/english-french-dictionary
+##		getting there, but still bugs to work out
+##		problems if word is part of multiword definition for phrase,
+##			or both english and french word (eg. chat/chat)
+##		still have to fix "nonwords" list, couldnt get it working as returned tuple from dictMaker
+
+## 11/7: changed from dictionary of single words to dict of lists, to allow for multiple translations for a single word
+##		made sure it wasn't doing eng-eng instead of fr-eng (by taking itself as its translation eg. chat/chat)
+##		fixed "count" bug by getting rid of enumeration in loop (still fixing)
+##		incorporated Lexique for mophological parsing/accepting multiple verb forms
+## 		broke up 'tester' into multiple functions
+
+## 11/11: trying (unsuccessfully) to fix the problem of how to get the correct words removed
+##		discovered that program had been looping without completing functinos, which mean that the word chosen was random each time
+##		looping and reassignming word made it impossible to specify the correct word
+##		more work needed
+
+## 11/12: went through code, reworked everything to get rid of all the stupid fixes; think through how things are
+##		SUPPOSED to be working, looked at what code was actually doing.
+##		all loops working well now, fixed word-removal bugs, made code more effectively modular
+
+## 11/13: tried to add in option to quit at any point
+## 		unsuccessful so far, but added in the option after getting incorrect answer (since there were already buttons at that point)
+##		problem is that it has to be at a point where pygame.event.get() is going, and can cause problems with other parts of the code
+
+## 11/14: added option to do eng->fr OR fr->eng
+##		added in "le" and "la" for nouns, since gender is important when learning vocabulary (used lexique)
+##		when french->english, user can input either just *translated word* or "the *translated word"
+##		otherwise, definite article require (and specified in prompt)
+
+## 11/15: fixed bug that added le/la before pronouns and some other words that shouldn't have articles
+
+## 11/17: fixed bugs for plural nouns, so that it didn't say things like "les chiens: dog"
+##		now lets users input their own definitions for words not found in the dictionary
+
+## 11/21: adds "l'" instead of le/la before vowels
+## 		let user optionally write "to" before infinitive verbs
+##		added "bonjour" and "salut" to list of words that dont get articles; havent decided how to deal with similar cases
+## 		when "le/la/les" added to noun, instance of article by itself is removed from dictionary
+##		now can have punctuation in entry strings (comma-separated, etc.) -- made new function for this: listMaker
+
+## 11/24: user can now choose to add english OR french words
+##		added prespecified lists as options as well (eg. food, animals, colors)
+## 		made code even more modular
+##		starting to maybe rethink the whole "adding articles to nouns" idea
+##		I'd like to break up dictMaker, but it was causing problems when split up
+## 		fixed up some aesthetics
+##		fixed bug that ignored french word if it was a prefix of an english word in dictionary (eg. chocolat)
+
+## 11/26: removed quit/restart buttons from wrong-answer screen; no justification for them being there
+##		made dictMaker WAY faster by creating dictionaries for dict.txt and lexique, for O(1) searching instead of
+##			iterating through both for each w
+##		created list of words with multiple entries in lexique; WONT add articles to those words, since it's possible that
+##			they have non-noun meanings for with articles won't make sense
+
+## 11/27: worked on improving speed by making multiwordList into a dictionary, but instead
+##			ended up making it 20x slower
+##		made dictMaker a bit more modular
+
+## 11/28: tried to figure out accents on pygame
+##		decided to restart everything and use PyQt instead.
+##		.........why do I do this to myself.
+
+## 11/29: trying to move everything over to PyQt
+##		struggling bigtime, but making progress
+##		lots left to do before it will even run
+
+## 11/30: one step forward ten steps back
+##		still going at it though
+##		can finally receive input and determine if it's correct/incorrect answer
+##		currently just gives first word, doesn't iterate through
+
+## 12/2: got PyQt mostly working
+##		almost all of code switched over
+
+## 12/3: added accent mark option
+##		improved on quizlet: popup option with ALL accents
+##		added logo
+##		improved aesthetics
+
+## 12/4: finalized change-over
+##		added color
+##		added new lists, made a separate window for choosing categories
+##		fixed problem with inputting words in stages (had been only taking last input)
+
+## 12/5: tried to bundle into full app, messed around in terminal,
+##			dug myself deeper and deeper into a hole, culminating with
+##			accidentally/notaccidentally uninstalling pyqt and miniconda
+##			oops.
+
+## 12/6: damage control, got everything up and running again.
+##		still can't get app bundling to work
+
+## 12/7: broke code up into multiple files
+##		made it all better-practice-y
+##		fixed problem with shift/tab keys and input
+
+## 12/8: there's a demon in my computer, won't let me package app with pyinstaller
+##		wouldnt work on trottier computers either, for python version reasons
+##		fixed some definitions in dictionary
+##		fixed bug when only nonWords are inputted
+
+##	12/10: added statusbar to say how many more correct responses are needed
+##		(so that user doesn't get confused why they're seeing word again)
+##		now will accept contractions (eg. j'aime) -- only tests on word after '
+##		fixed multiple issues/bugs with construction of english-french dictionary
+##			when input language is english
+##		added 's' to base word when the user asked the plural form of noun
+##			sort of fixes the problem, but only works for nouns that pluralize that way
+##		added feature to suggest lists based on user word input
+
+##	12/11: tried to set focus on text box, failed
+##		commented code
+## 		added option for user to restart test with same words
+
+
+## THINGS TO ADD/FIX
+##
+## when user inputs english, gave every single verb form (ex. loger)
+## "un" gives overwhelming amount of options for english->french (ex. "somebody")
+
+
+## make app icon
+## cursor pre-placed
+## better searching
+
+
+
