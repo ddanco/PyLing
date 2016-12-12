@@ -8,5 +8,5 @@ Python3<br />
 PyQt5<br />
 <br />
 To run:<br />
-Download all files to the same folder.<br />
+Download all files/folders (excluding README, CHANGELOG, and dancoFinalReport) to the same folder.<br />
 From that folder, run command on terminal: python PyLing.py<br />
