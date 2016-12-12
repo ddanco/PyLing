@@ -98,28 +98,11 @@ class Tester(QMainWindow):
 		self.clearPage()
 		self.placeLogo()
 		fName = os.path.join(categories_dir, self.name + '.txt')
-		#if not os.path.exists(fName):
-
-		#	reply = QMessageBox.question(self, 'Message',
-		#		fName, QMessageBox.Yes |
-		#		QMessageBox.No, QMessageBox.No)
-		#try:
 		with open(fName,'r', encoding='utf8') as f:
 			text = f.read()
-		#except Exception as e:
-
-		#	reply = QMessageBox.question(self, 'open fucked up',
-		#		'open yyyyyy' + str(e), QMessageBox.Yes |
-		#		QMessageBox.No, QMessageBox.No)
-		#try:
 		self.edit = text
 		self.inputLang = 'fr'
 		self.handleFinished(self.edit)
-		#except Exception as e:
-		#	import traceback
-		#	reply = QMessageBox.question(self, 'other stuff fucked up',
-		#		traceback.format_exc(), QMessageBox.Yes |
-		#		QMessageBox.No, QMessageBox.No)
 
 	def noWords(self): #user didnt enter any words (or only put non-words)
 		self.clearPage()
