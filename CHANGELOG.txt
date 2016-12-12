@@ -156,7 +156,7 @@
 ##	12/11: tried to set focus on text box, failed
 ##		commented code
 ## 		added option for user to restart test with same words
-##    added files to GitHub
+##    	added all files to GitHub
 
 
 ## THINGS TO ADD/FIX
