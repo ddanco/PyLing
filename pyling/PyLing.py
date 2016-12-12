@@ -11,10 +11,12 @@ logo_dir = os.path.join(root,'logos')
 categories_dir = os.path.join(root,'categories')
 
 
-#from pyling.widgets import *
-#from pyling.dictionaryMaker import *
-from widgets import *
-from dictionaryMaker import *
+##for app bundle, use top two import lines, for running file from terminal, use second two import lines
+from pyling.widgets import *
+from pyling.dictionaryMaker import *
+#from widgets import *
+#from dictionaryMaker import *
+
 
 class Tester(QMainWindow):
 
