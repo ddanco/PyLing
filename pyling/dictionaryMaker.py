@@ -1,7 +1,12 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-import sys, re, string
+import sys, re, string, os
+
+if getattr(sys, 'frozen', False):
+	root = os.path.dirname(sys.executable)
+else:
+	root = os.path.dirname(os.path.abspath(__file__))
 
 
 class DictConstructor(object):
@@ -68,8 +73,10 @@ class DictConstructor(object):
 					del self.curDict[word]
 
 	def lexiqueAndDictionary(self):
-		dictionary = open('dict.txt').read() #english-french dictionary
-		lexique = open('Lexique381.txt').read() #french lexical dictionary
+		with open(os.path.join(root, 'dict.txt'), 'r', encoding = 'utf-8') as f:
+			dictionary = f.read() #english-french dictionary
+		with open(os.path.join(root, 'Lexique381.txt'), 'r', encoding = 'utf-8') as f:
+			lexique = f.read() #french lexical dictionary
 		dictlines = dictionary.split('\n')
 		lexlines = lexique.split('\n')
 		lexDict = {}

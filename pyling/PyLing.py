@@ -1,8 +1,18 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
+import sys
+import os
 
-from widgets import *
-from dictionaryMaker import *
+if getattr(sys, 'frozen', False):
+	root = os.path.dirname(sys.executable)
+else:
+	root = os.path.dirname(os.path.abspath(__file__))
+logo_dir = os.path.join(root,'logos')
+categories_dir = os.path.join(root,'categories')
+
+
+from pyling.widgets import *
+from pyling.dictionaryMaker import *
 
 class Tester(QMainWindow):
 
@@ -17,7 +27,7 @@ class Tester(QMainWindow):
 		self.win = QWidget()
 		self.l1 = QLabel(self)
 		self.l2 = QLabel(self)
-		self.l1.setPixmap(QPixmap("logos/logo3.png"))
+		self.l1.setPixmap(QPixmap(os.path.join(logo_dir, "logo3.png")))
 		self.l2.setText("What would you like to learn?")
 		self.l1.setAlignment(Qt.AlignCenter)
 		self.l2.setAlignment(Qt.AlignCenter)
@@ -57,7 +67,7 @@ class Tester(QMainWindow):
 
 	def placeLogo(self): #sets small version of logo to top of screen
 		self.logo = QLabel(self)
-		self.logo.setPixmap(QPixmap("logos/logosmall.png"))
+		self.logo.setPixmap(QPixmap(os.path.join(logo_dir, "logosmall.png")))
 		self.logo.setAlignment(Qt.AlignCenter)
 		self.box.addWidget(self.logo)
 
@@ -85,11 +95,29 @@ class Tester(QMainWindow):
 		self.categoryList = True
 		self.clearPage()
 		self.placeLogo()
-		fName = str('categories/' + self.name + '.txt')
-		f = open(fName).read()
-		self.edit = str(f)
-		self.inputLang = 'fr'
-		self.handleFinished(self.edit)
+		fName = os.path.join(categories_dir, self.name + '.txt')
+		if not os.path.exists(fName):
+
+			reply = QMessageBox.question(self, 'Message',
+				fName, QMessageBox.Yes |
+				QMessageBox.No, QMessageBox.No)
+		try:
+			with open(fName,'r', encoding='utf8') as f:
+				text = f.read()
+		except Exception as e:
+
+			reply = QMessageBox.question(self, 'open fucked up',
+				'open yyyyyy' + str(e), QMessageBox.Yes |
+				QMessageBox.No, QMessageBox.No)
+		try:
+			self.edit = text
+			self.inputLang = 'fr'
+			self.handleFinished(self.edit)
+		except Exception as e:
+			import traceback
+			reply = QMessageBox.question(self, 'other stuff fucked up',
+				traceback.format_exc(), QMessageBox.Yes |
+				QMessageBox.No, QMessageBox.No)
 
 	def noWords(self): #user didnt enter any words (or only put non-words)
 		self.clearPage()

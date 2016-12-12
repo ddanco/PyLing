@@ -8,6 +8,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 
 
+
 class Choices(QWidget): #widget to give user options (eg. accents, categories)
 	finished = pyqtSignal(str)
 
