@@ -11,8 +11,10 @@ logo_dir = os.path.join(root,'logos')
 categories_dir = os.path.join(root,'categories')
 
 
-from pyling.widgets import *
-from pyling.dictionaryMaker import *
+#from pyling.widgets import *
+#from pyling.dictionaryMaker import *
+from widgets import *
+from dictionaryMaker import *
 
 class Tester(QMainWindow):
 
@@ -96,28 +98,28 @@ class Tester(QMainWindow):
 		self.clearPage()
 		self.placeLogo()
 		fName = os.path.join(categories_dir, self.name + '.txt')
-		if not os.path.exists(fName):
+		#if not os.path.exists(fName):
 
-			reply = QMessageBox.question(self, 'Message',
-				fName, QMessageBox.Yes |
-				QMessageBox.No, QMessageBox.No)
-		try:
-			with open(fName,'r', encoding='utf8') as f:
-				text = f.read()
-		except Exception as e:
+		#	reply = QMessageBox.question(self, 'Message',
+		#		fName, QMessageBox.Yes |
+		#		QMessageBox.No, QMessageBox.No)
+		#try:
+		with open(fName,'r', encoding='utf8') as f:
+			text = f.read()
+		#except Exception as e:
 
-			reply = QMessageBox.question(self, 'open fucked up',
-				'open yyyyyy' + str(e), QMessageBox.Yes |
-				QMessageBox.No, QMessageBox.No)
-		try:
-			self.edit = text
-			self.inputLang = 'fr'
-			self.handleFinished(self.edit)
-		except Exception as e:
-			import traceback
-			reply = QMessageBox.question(self, 'other stuff fucked up',
-				traceback.format_exc(), QMessageBox.Yes |
-				QMessageBox.No, QMessageBox.No)
+		#	reply = QMessageBox.question(self, 'open fucked up',
+		#		'open yyyyyy' + str(e), QMessageBox.Yes |
+		#		QMessageBox.No, QMessageBox.No)
+		#try:
+		self.edit = text
+		self.inputLang = 'fr'
+		self.handleFinished(self.edit)
+		#except Exception as e:
+		#	import traceback
+		#	reply = QMessageBox.question(self, 'other stuff fucked up',
+		#		traceback.format_exc(), QMessageBox.Yes |
+		#		QMessageBox.No, QMessageBox.No)
 
 	def noWords(self): #user didnt enter any words (or only put non-words)
 		self.clearPage()
@@ -231,7 +233,8 @@ class Tester(QMainWindow):
 		self.answer = answer.lower() #to avoid issues with capital/lowercase letters
 		if (self.answer in self.curDict[self.w]
 				or ((answer[0:4] == "the ") and (answer[4:] in self.curDict[self.w])) #allows some flexibility in user input
-				or ((answer[0:3] == "to ") and (answer[3:] in self.curDict[self.w]))):
+				or ((answer[0:3] == "to ") and (answer[3:] in self.curDict[self.w]))
+				or ((answer[0:2] == "a ") and (answer[2:] in self.curDict[self.w]))):
 				self.clearPage()
 				self.placeLogo()
 				self.correct = QLabel(self)
@@ -291,13 +294,14 @@ class Tester(QMainWindow):
 	def compareCount(self): #checks which premade category is most similar to user's inputted words
 		countList = []
 		categoryList = ['Animals', 'Colors', 'Foods', 'Transportation', 'Countries', 'Sports', 'Emotions', 'Actions', 'Months', 'Numbers', 'days_of_week', 'Pronouns']
-		for x in categoryList: countList.append((x,self.categoryFileCrawl('categories/' + x + '.txt')))
+		for x in categoryList: countList.append((x,self.categoryFileCrawl(os.path.join(categories_dir, x + '.txt'))))
 		countList.sort(key=lambda x: x[1])
 		self.bestCategory,self.number = countList[-1]
 
-	def categoryFileCrawl(self,f): #gets count of word matches between input and each category
+	def categoryFileCrawl(self,fName): #gets count of word matches between input and each category
 		count = 0
-		fi = open(f).read()
+		with open(fName,'r', encoding='utf8') as f:
+			fi = f.read()
 		terms = fi.split(' ')
 		for w in self.dictCopy:
 			for indW in w.split(" "):
