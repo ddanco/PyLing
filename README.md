@@ -8,4 +8,4 @@ Python3<br />
 PyQt5<br />
 <br />
 To run:<br />
-Download application by opening PyLing1.0.dmg (https://github.com/ddanco/PyLing/releases).<br />
+Download application with PyLing1.0.dmg (https://github.com/ddanco/PyLing/releases).<br />
