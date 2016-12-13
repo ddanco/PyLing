@@ -3,7 +3,7 @@
 <br />
 Goal: easy-to-use vocabulary-learning app for English-speakers who are learning French. <br />
 <br />
-Dependencies (included with full app download):<br />
+Dependencies (not necessary with full app download):<br />
 Python3<br />
 PyQt5<br />
 <br />
