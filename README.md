@@ -3,10 +3,9 @@
 <br />
 Goal: create an easy-to-use vocabulary-learning app for English-speakers who are learning French. <br />
 <br />
-Dependencies:<br />
+Dependencies (not necessary when full app downloaded):<br />
 Python3<br />
 PyQt5<br />
 <br />
 To run:<br />
-Download all files/folders (excluding README, CHANGELOG, and dancoFinalReport) to the same folder.<br />
-From that folder, run command on terminal: python PyLing.py<br />
+Download application by opening PyLing1.0.dmg (found in "releases").<br />
