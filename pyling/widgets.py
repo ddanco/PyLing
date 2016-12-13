@@ -28,7 +28,7 @@ class Choices(QWidget): #widget to give user options (eg. accents, categories)
 
 	def placeButtons(self): #makes list of options, each as a button
 		symbolList = ['é','è','ê','ë','à','â','â','ç','ù','ü','û','î','ï']
-		categoryList = ['Animals', 'Colors', 'Foods', 'Transportation', 'Countries', 'Sports', 'Emotions', 'Actions', 'Months', 'Numbers', 'Day of the Week', 'Pronouns']
+		categoryList = ['Animals', 'Colors', 'Foods', 'Transportation', 'Sports', 'Emotions', 'Actions', 'Months', 'Numbers', 'Days of the Week', 'Pronouns']
 		if self.typeC == 'accent': self.buttons = [QPushButton(x,self) for x in symbolList]
 		elif self.typeC == 'category': self.buttons = [QPushButton(x,self) for x in categoryList]
 		for self.button in self.buttons:

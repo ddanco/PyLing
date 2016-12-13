@@ -65,7 +65,7 @@ class Tester(QMainWindow):
 	def handleCategoryFinished(self,name): #when category chosen
 		self.name = name
 		if self.name == 'Days of the Week': #special case for days of the week, since file name has no spaces
-			self.name = days_of_week
+			self.name = "days_of_week"
 			self.startCategory()
 		else: self.startCategory()
 
@@ -278,7 +278,7 @@ class Tester(QMainWindow):
 
 	def compareCount(self): #checks which premade category is most similar to user's inputted words
 		countList = []
-		categoryList = ['Animals', 'Colors', 'Foods', 'Transportation', 'Countries', 'Sports', 'Emotions', 'Actions', 'Months', 'Numbers', 'days_of_week', 'Pronouns']
+		categoryList = ['Animals', 'Colors', 'Foods', 'Transportation', 'Sports', 'Emotions', 'Actions', 'Months', 'Numbers', 'days_of_week', 'Pronouns']
 		for x in categoryList: countList.append((x,self.categoryFileCrawl(os.path.join(categories_dir, x + '.txt'))))
 		countList.sort(key=lambda x: x[1])
 		self.bestCategory,self.number = countList[-1]

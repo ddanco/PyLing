@@ -1195,7 +1195,7 @@ angers : angers
 angio saxon : anglo saxon
 angle : encoignure, angle
 angled : farfelu
-angry : agacant
+angry : agacant, fáché
 anguish : angoissons, angoissez, angoisser, angoissent
 anguished : angoissé, angoissa, angoissai, angoissâmes
 anguishing : angoissant
@@ -5483,6 +5483,7 @@ English−french Dictionary
 cutting down : abattage
 cuttlefish : sépia
 cycle : cycle, bicyclette, pédaler
+cycling : cyclisme
 cyclist : cycliste
 cyclone : cyclone
 cylinder : cylindre
@@ -10027,7 +10028,7 @@ going : allume
 gold : or
 gold plating : dorage, dorure
 goldsmith : orfèvre
-golf : golfe
+golf : golf
 gone : allés, allées, allé
 gone to bed : couchés, couché, couchées, couchée
 good : bon, richement
@@ -13370,7 +13371,7 @@ English−french Dictionary
 
 malicious : malintentionné, perfide
 maliciously : chicaneur
-malign : désastreux, chiner
+malign : désastreux
 malignancy : malveillance
 malignant : pernicieux
 malignantly : pernicieuxse
@@ -14059,7 +14060,7 @@ moribund : mourant
 moribundity : mortalité
 morning : matin, matinée
 moroccan : marocain
-morocco : maroc
+morocco : Maroc
 moronic : imbécile
 morpheme : morphème
 morphine : morphine
@@ -14455,6 +14456,7 @@ Nimwegen : Nimègue
 nine : neuf
 nineteen : dix neuf, dix−neuf
 ninety one : quatre vingt onze
+ninety-six : quatre-vingt-seize
 nip : caponner
 nipple : mamelon
 nit : lente
@@ -23290,6 +23292,7 @@ thirteen : treize
 thirteenth : treizième
 thirtieth : trentième
 thirty : trente
+thirty-three : trente-trois
 this : lequel, celle−ci, celui−ci, ceci, cet
 this here : ceci
 this way or that way : vaille
@@ -24391,7 +24394,7 @@ unitary : unitaire
 unite : adjoignez, unir, englobons, adjoins, unifier, unis
 united : adjoignit, ligués, liguées, liguée, adjoignîmes
 united nations : nations−unies
-United States : etats unis
+United States : états-unis
 United States of America : Etats−Unis
 unites : unit, ligue, englobe
 uniting : adjoignant, liguant, unissant, englobant
