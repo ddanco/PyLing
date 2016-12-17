@@ -157,6 +157,7 @@
 ##		commented code
 ## 		added option for user to restart test with same words
 ##		added all files to GitHub
+## 		full app now
 
 
 ## THINGS TO ADD/FIX
@@ -165,9 +166,12 @@
 ## "un" gives overwhelming amount of options for english->french (ex. "somebody")
 
 
-## make app icon
 ## cursor pre-placed
 ## better searching
+## instructions popup
+## fix words missing from "transportation" (and maybe other categories)
+## add enter button? or at least thing that says "hit enter"
+
 
 
 

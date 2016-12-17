@@ -1195,7 +1195,7 @@ angers : angers
 angio saxon : anglo saxon
 angle : encoignure, angle
 angled : farfelu
-angry : agacant, fáché
+angry : agacant, fâché
 anguish : angoissons, angoissez, angoisser, angoissent
 anguished : angoissé, angoissa, angoissai, angoissâmes
 anguishing : angoissant
@@ -2597,7 +2597,7 @@ bicker : picotons, picotez, picoter, picotent
 bickered : picotés, picotèrent, picotées, picoté, picotée
 bickering : picoterie, picotant
 bickers : picote
-bicycle : bécane, bicyclette
+bicycle : bécane, bicyclette, vélo
 bid : impératifs, prier
 bidding : impératifs
 big : mailloche, grand
@@ -2605,7 +2605,7 @@ big landowner : seigneur
 bigamist : bigame
 bigot : bigot
 bigotry : bigoterie
-bike : bécane, bicyclette
+bike : bécane, bicyclette, vélo
 bikini : bikini
 bile : bile, fiel
 bill : bec, facture, billet, note
@@ -10028,7 +10028,6 @@ going : allume
 gold : or
 gold plating : dorage, dorure
 goldsmith : orfèvre
-golf : golf
 gone : allés, allées, allé
 gone to bed : couchés, couché, couchées, couchée
 good : bon, richement
@@ -10955,8 +10954,8 @@ hoarse : rauque, rugueux
 hoaw : esrrit
 hoax : attrape
 hockshop : mont de piété
+hockey : hockey
 hoe : houe
-hoecky : hockey
 hoggish : goulu
 English−french Dictionary
 
@@ -13265,7 +13264,6 @@ madwoman : cinglée
 maelstrom : tourbillon
 maestro : maître
 magazine : gazette, revue, journal
-magenta : violet
 maggot : ciron
 magic : magie
 magician : magicien
@@ -19367,7 +19365,8 @@ English−french Dictionary
 
 seventh : septième
 seventieth : soixante dixième
-seventy : septante
+seventy : soixante-dix
+seventy-three : soixante-treize
 sever : découdre
 several : plusieurs
 several times : quelquefois

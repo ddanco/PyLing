@@ -31,6 +31,7 @@ class Tester(QMainWindow):
 		self.l1 = QLabel(self)
 		self.l2 = QLabel(self)
 		self.l1.setPixmap(QPixmap(os.path.join(logo_dir, "logo3.png")))
+		bInstructions = QPushButton("Instructions")
 		self.l2.setText("What would you like to learn?")
 		self.l1.setAlignment(Qt.AlignCenter)
 		self.l2.setAlignment(Qt.AlignCenter)
@@ -40,6 +41,7 @@ class Tester(QMainWindow):
 		self.box = QVBoxLayout()
 		self.statusBar()
 		self.box.addWidget(self.l1)
+		self.box.addWidget(bInstructions)
 		self.box.addWidget(self.l2)
 		self.box.addWidget(bFr)
 		self.box.addWidget(bEn)
@@ -54,7 +56,14 @@ class Tester(QMainWindow):
 		bFr.clicked.connect(self.startFrench)
 		bEn.clicked.connect(self.startEnglish)
 		bCategories.clicked.connect(self.openCategories)
+		bInstructions.clicked.connect(self.showInstructions)
 		self.setWindowTitle("PyLing")
+
+	def showInstructions(self):
+		reply = QMessageBox.question(self, 'Instructions',
+			"PyLing will help you master French vocabulary words. \n\nEnter words you'd like to learn (you can put in English or French words, we'll find the translations), or pick one of our pre-made categories. \n\nYou'll be tested on those words until you've mastered them! \n\n(The more times you get a word wrong, the more times you'll need to get it right to move on.)", QMessageBox.Ok)
+		if reply == QMessageBox.Ok:
+			self.initUI() #was having problem getting last character, adding space at end fixes it
 
 	def openCategories(self): #user selected to learn from a category, open list of options
 		self.categories = Choices('category')
@@ -189,8 +198,8 @@ class Tester(QMainWindow):
 		else:
 			self.w = self.dictList[0]
 			self.prompt = QLabel(self)
-			if self.language == 'fr': self.prompt.setText("Please give the English translation: ")
-			if self.language == 'en' : self.prompt.setText("Please give the French translation: ")
+			if self.language == 'fr': self.prompt.setText("Please give the English translation, then press enter.")
+			if self.language == 'en' : self.prompt.setText("Please give the French translation, then press enter.")
 			self.prompt.setAlignment(Qt.AlignCenter)
 			self.box.addWidget(self.prompt)
 			if self.curDict[self.w][0][0:3] in ['les', 'la ', 'le ']: defW = 'the ' + self.w #prompt with "the" if article needed
@@ -304,7 +313,7 @@ class Tester(QMainWindow):
 		self.box.addWidget(self.done)
 		self.showRecord()
 		if self.number > 0 and (not self.categoryList) : self.suggestLists()
-		bRe = QPushButton("Restart",self) #option to restart test (same words)
+		bRe = QPushButton("Restart (same words)",self) #option to restart test (same words)
 		self.box.addWidget(bRe)
 		bRe.clicked.connect(self.restart)
 		bNew = QPushButton("New words",self) #option to restart test (inputting new words)
