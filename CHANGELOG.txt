@@ -159,6 +159,11 @@
 ##		added all files to GitHub
 ## 		full app now
 
+## 12/16: added instructions window
+##		now tells user explicitly to press enter after each word
+##		fixed categories/dictionary (some words were missing)
+
+
 
 ## THINGS TO ADD/FIX
 ##
@@ -168,10 +173,7 @@
 
 ## cursor pre-placed
 ## better searching
-## instructions popup
-## fix words missing from "transportation" (and maybe other categories)
-## add enter button? or at least thing that says "hit enter"
-
+## add "hit enter" on input page too
 
 
 
