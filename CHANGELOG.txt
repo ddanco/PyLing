@@ -163,6 +163,8 @@
 ##		now tells user explicitly to press enter after each word
 ##		fixed categories/dictionary (some words were missing)
 
+## 12/18: clarified instructions
+
 
 
 ## THINGS TO ADD/FIX
@@ -174,6 +176,9 @@
 ## cursor pre-placed
 ## better searching
 ## add "hit enter" on input page too
+## add "le" for french to english prompts
+## "hockey" (and all same-translation words)
+
 
 
 

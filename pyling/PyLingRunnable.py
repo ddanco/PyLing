@@ -61,7 +61,7 @@ class Tester(QMainWindow):
 
 	def showInstructions(self):
 		reply = QMessageBox.question(self, 'Instructions',
-			"PyLing will help you master French vocabulary words. \n\nEnter words you'd like to learn (you can put in English or French words, we'll find the translations), or pick one of our pre-made categories. \n\nYou'll be tested on those words until you've mastered them! \n\n(The more times you get a word wrong, the more times you'll need to get it right to move on.)", QMessageBox.Ok)
+			"PyLing will help you master French vocabulary words. \n\nEnter words you'd like to learn, or pick one of our pre-made categories. You can put in English or French, we'll find the translations. \n\nYou'll be tested on those words until you've mastered them! \n\nThe more times you get a word wrong, the more times you'll need to get it right to move on.", QMessageBox.Ok)
 		if reply == QMessageBox.Ok:
 			self.initUI() #was having problem getting last character, adding space at end fixes it
 
